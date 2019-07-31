@@ -1,0 +1,16 @@
+* Kip
+
+#+CAPTION: The lightbringer
+#+SRC: https://images.app.goo.gl/je8jxDRywBJqYywXA
+#+NAME:   fig:kip
+#+attr_html: :width 100px
+#+attr_latex: :width 100px
+[[./img/kip.jpg]]
+
+** Instructions
+
++ Install chez scheme
+
++ Run scheme server.scm to run server
+
+
