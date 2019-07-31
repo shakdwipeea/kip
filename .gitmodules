@@ -1,0 +1,9 @@
+[submodule "catapult"]
+	path = catapult
+	url = https://github.com/guenchi/Catapult
+[submodule "core"]
+	path = core
+	url = https://github.com/guenchi/Core
+[submodule "igropyr"]
+	path = igropyr
+	url = https://github.com/guenchi/Igropyr
