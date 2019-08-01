@@ -100,25 +100,7 @@
 (check (node-contains-attribute? meta-tag) => #t)
 (check (node-contains-attribute? div-tag) => #f)
 
-(define wrap-tag
-  (case-lambda
-
-   ;; textual element like (p "as")
-   [(element) (wrap-tag element "")]
-
-   [(element children) (wrap-tag element children #f)]
-   
-   [(element children attribute?)
-    (let ((tag (car element)))
-      (string-append (if attribute?
-			 (open-html-tag-with-attr tag)
-			 (open-html-tag tag))
-		     (cadr element)
-		     children
-		     (close-html-tag tag)))]))
-
-(check (wrap-tag '(p "as")) => "<p>as</p>")
-
+;;; test end
 
 (define (tree->html tree) 
   (cond
@@ -156,31 +138,6 @@
 
 ;; tests end
 
-
-(define (template->html t)
-  (printf "~s t \n" t)
-  (if (not (list? t))
-      ""
-      (let ((tag (car t)))
-	(display tag)
-	(if (node-contains-attribute? t)
-	    
-	    ;; attribute
-	    (string-append (open-html-tag-with-attr t)
-			   (string-join (map template->html (cdr t))
-					"\n")
-			   (close-tag tag))
-
-	    ;; no attribute
-	    (string-append (open-html tag)
-			   (string-join (map template->html (cdr t))
-					"\n")
-			   (close-html tag))))))
-
-(cdr t)
-
-(template->html t)
-
 #!eof
 
 
@@ -200,4 +157,3 @@
 		 ((name . "viewport")
 		  (content . "width=device-width,initial-scale=1.0")))))
 
-(template->html 'template)
